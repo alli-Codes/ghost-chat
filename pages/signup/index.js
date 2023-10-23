@@ -3,22 +3,41 @@ import Link from "next/link";
 import { useRef } from "react";
 import Button from "@/components/Button";
 
+// Firebase importings
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 export default function Signup() {
   const emailInput = useRef(null);
   const passwordInput = useRef(null);
+  let email = undefined;
+  let password = undefined;
+  const auth = getAuth();
+  const signUpForm = useRef(null);
 
   const getUserDetails = function () {
-    let email = emailInput.current.value;
-    let password = passwordInput.current.value;
-
-    console.log(email, password);
+    email = emailInput.current.value;
+    password = passwordInput.current.value;
   };
+
+  const createUser = function (e) {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        signUpForm.current.reset();
+        // localStorage.setItem('userRefreshToken', res.user.refreshToken)
+      })
+      .catch((err) => console.log(err));
+  };
+
+  // createUserWithEmailAndPassword(auth, email, password);
 
   return (
     <div className="h-screen flex flex-col items-stretch justify-center">
       <form
         className="flex flex-col items-center px-4 gap-4"
         onChange={getUserDetails}
+        onSubmit={createUser}
+        ref={signUpForm}
       >
         <input
           type="email"

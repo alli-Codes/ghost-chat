@@ -1,4 +1,6 @@
-import firebase from "firebase/app";
+import "../styles/globals.css";
+import { initializeApp } from "firebase/app";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBaoNrbv4LseDaYiNbGCEEPPTGhaMOGOok",
   authDomain: "anonymous-texts-6f7ad.firebaseapp.com",
@@ -9,4 +11,14 @@ const firebaseConfig = {
   measurementId: "G-5D4KVZVNJW",
 };
 
-firebase.initializeApp(firebaseConfig);
+const MyApp = function ({ Component, pageProps }) {
+  const firebaseApp = initializeApp(firebaseConfig);
+  //   console.log(firebaseApp);
+  return (
+    <div>
+      <Component {...pageProps} />
+    </div>
+  );
+};
+
+export default MyApp;
