@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
 
 // Firebase importings
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Signup() {
   const router = useRouter();
@@ -14,32 +14,30 @@ export default function Signup() {
   let email = undefined;
   let password = undefined;
   const auth = getAuth();
-  const signUpForm = useRef(null);
+  const loginForm = useRef(null);
 
   const getUserDetails = function () {
     email = emailInput.current.value;
     password = passwordInput.current.value;
   };
 
-  const createUser = function (e) {
+  const loginUser = function (e) {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        // signUpForm.current.reset();
-        router.push("/login");
+        // loginForm.current.reset();
+        router.push("/");
       })
       .catch((err) => console.log(err));
   };
-
-  // createUserWithEmailAndPassword(auth, email, password);
 
   return (
     <div className="h-screen flex flex-col items-stretch justify-center">
       <form
         className="flex flex-col items-center px-4 gap-4"
         onChange={getUserDetails}
-        onSubmit={createUser}
-        ref={signUpForm}
+        onSubmit={loginUser}
+        ref={loginForm}
       >
         <input
           type="email"
@@ -54,11 +52,11 @@ export default function Signup() {
           className="bg-white w-full p-4 border border-1 active:outline outline-black"
         />
 
-        <Button content={"Sign Up"} />
+        <Button content={"Login"} />
         <p>
-          Already have an account?{" "}
-          <Link href="/login" className="text-blue-700">
-            Login
+          Don't have an account?{" "}
+          <Link href="/signup" className="text-blue-700">
+            Sign Up
           </Link>
         </p>
       </form>
