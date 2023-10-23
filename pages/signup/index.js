@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
+import setNewUser from "@/utils/setNewUser";
 
 // Firebase importings
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -26,6 +27,8 @@ export default function Signup() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
         // signUpForm.current.reset();
+        console.log(res);
+        setNewUser(res.user.uid, res.user.email);
         router.push("/login");
       })
       .catch((err) => console.log(err));
