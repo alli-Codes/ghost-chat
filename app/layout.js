@@ -14,7 +14,7 @@ export default function DefaultLayout({ userInfo }) {
           <div className=" flex flex-col items-center">
             <div className="bg-gray-100 px-5 py-1 flex items-center gap-2 rounded-full relative">
               <b>{userInfo.username}</b>
-              <div className="h-10 w-10 bg-black rounded-full"></div>
+              <div className="h-8 w-8 bg-black rounded-full"></div>
             </div>
           </div>
         </nav>
