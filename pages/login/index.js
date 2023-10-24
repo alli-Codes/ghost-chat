@@ -25,7 +25,6 @@ export default function Signup() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        // loginForm.current.reset();
         router.push("/");
       })
       .catch((err) => console.log(err));

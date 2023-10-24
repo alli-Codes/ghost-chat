@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { initializeApp } from "firebase/app";
+import DefaultLayout from "@/app/layout";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBaoNrbv4LseDaYiNbGCEEPPTGhaMOGOok",

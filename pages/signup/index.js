@@ -26,8 +26,6 @@ export default function Signup() {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        // signUpForm.current.reset();
-        console.log(res);
         setNewUser(res.user.uid, res.user.email);
         router.push("/login");
       })
