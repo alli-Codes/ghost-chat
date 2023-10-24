@@ -1,8 +1,12 @@
 "use client";
 import Link from "next/link";
 
-export default function Header() {
+export default function Header({ parent }) {
   const router = window.location;
+  const p = parent.current;
+  const scrollPageX = function (state) {
+    state ? (p.scrollLeft = -p.scrollWidth) : (p.scrollLeft = p.scrollWidth);
+  };
   return (
     <div className="flex gap-4 text-lg font-bold">
       <a
@@ -12,12 +16,14 @@ export default function Header() {
             ? "text-black"
             : "text-gray-400"
         }
+        onClick={() => scrollPageX(true)}
       >
         PLAY
       </a>
       <a
         href="#inbox"
         className={router.hash == "#inbox" ? "text-black" : "text-gray-400"}
+        onClick={() => scrollPageX(false)}
       >
         INBOX
       </a>

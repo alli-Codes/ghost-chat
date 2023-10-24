@@ -4,14 +4,15 @@ import { useRouter } from "next/router";
 
 export default function PlayPage({ username }) {
   const router = window.location;
-  //   console.log(router.hash);
   return (
-    <div id="play" className="w-screen px-4 py-10 flex flex-col gap-4">
+    <div className="w-screen px-4 py-10 flex flex-col gap-4">
       <section className="flex flex-col items-center gap-4">
         <MainCard />
-        <div className="bg-gray-200 self-stretch py-8 flex flex-col items-center gap-4 rounded-xl">
+        <div className="bg-gray-200 self-stretch py-8 px-8 flex flex-col items-center gap-4 rounded-xl relative">
           <b>Step 1: Copy your link.</b>
-          <p className="text-gray-800">{router.origin + "/" + username}</p>
+          <p className="break-all text-center text-gray-800">
+            {router.hostname + "/me/" + username}
+          </p>
           <button className="px-8 font-bold border border-black border-4 rounded-full">
             copy link
           </button>
