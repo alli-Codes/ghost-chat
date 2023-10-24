@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Header({ parent }) {
   const router = window.location;
-  const p = parent.current;
+  let p = undefined;
+  useEffect(() => (p = parent.current));
   const scrollPageX = function (state) {
     state ? (p.scrollLeft = -p.scrollWidth) : (p.scrollLeft = p.scrollWidth);
   };

@@ -1,11 +1,20 @@
+import MessageList from "./MessageList";
+
 export default function InboxPage() {
   return (
-    <div className="w-screen px-4 py-10 flex flex-col gap-20">
-      <section className="flex flex-col gap-4">
-        <b>Step 1: Copy Link.</b>
-        <b>jskkgskgksgkkgn</b>
-        <button>copy link</button>
-      </section>
+    <div className="h-screen w-screen py-10 flex flex-col overflow-hidden">
+      <div className="overflow-scroll">
+        <MessageList />
+        <MessageList />
+        <MessageList />
+        <MessageList />
+        <MessageList />
+        <MessageList />
+        <MessageList />
+        <MessageList />
+        <MessageList />
+        <MessageList />
+      </div>
     </div>
   );
 }
