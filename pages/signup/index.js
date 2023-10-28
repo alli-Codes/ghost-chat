@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import setNewUser from "@/utils/setNewUser";
 
 // Firebase importings

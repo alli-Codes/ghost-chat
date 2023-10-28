@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 // Firebase importings
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
