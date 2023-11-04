@@ -15,6 +15,7 @@ const firebaseConfig = {
 const MyApp = function ({ Component, pageProps }) {
   const firebaseApp = initializeApp(firebaseConfig);
   //   console.log(firebaseApp);
+  console.log(pageProps);
   return (
     <div>
       <Component {...pageProps} />

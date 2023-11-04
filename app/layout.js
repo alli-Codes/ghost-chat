@@ -1,7 +1,9 @@
+"use client";
+
 import Header from "@/components/Header";
 import InboxPage from "@/components/Inbox";
 import PlayPage from "@/components/Play";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function DefaultLayout({ userInfo }) {
   const layoutContainer = useRef(null);
